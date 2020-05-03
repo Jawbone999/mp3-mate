@@ -1,0 +1,30 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title MP3 Mate
+    link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='stylesheet', href='./stylesheets/forms.css')
+  body
+    .NavBar
+      ul
+        a(href='/')
+          img(src='../images/logo.png')
+        a.nav(href='/search') Search
+        a.nav(href='/upload') Upload
+        a.nav(href='/user') Account
+        a.nav(href='/login') Log Out
+    .forms.nav-form
+      h1 Upload Music
+      form(method='post', enctype='multipart/form-data', action='/upload')
+        h2 Art:
+        input(type='file', name='art')
+        h2 MP3 File:
+        input(type='file', name='mp3')
+        h2 Title:
+        input(autocomplete='off', type='text', name='title')
+        h2 Artist:
+        input(autocomplete='off', type='text', name='artist')
+        input(type='submit', value='Upload')
+        h3= error
+    img#logo(src='../images/logo.png', alt='')

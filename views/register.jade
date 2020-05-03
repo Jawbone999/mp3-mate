@@ -1,0 +1,24 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title MP3 Mate
+    link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='stylesheet', href='./stylesheets/forms.css')
+  body
+    .forms
+      h1 Register
+      p Please enter your details to create an account.
+      p
+        a(href='/login') (or click here to log in)
+      br
+      form(method='post', action='/register')
+        h2 Email:
+        input(autocomplete='off', type='text', name='email')
+        h2 Username:
+        input(autocomplete='off', type='text', name='username')
+        h2 Password:
+        input(autocomplete='off', type='text', name='password')
+        input(type='submit', value='Register')
+        h3= error
+    img#logo(src='../images/logo.png', alt='')

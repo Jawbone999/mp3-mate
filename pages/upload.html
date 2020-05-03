@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Mate</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/forms.css">
+  </head>
+
+  <body>
+    <div class="NavBar">
+      <ul>
+        <a href="/"><img src="../images/logo.png"></a>
+        <a class="nav" href="/search">Search</a>
+        <a class="nav" href="/upload">Upload</a>
+        <a class="nav" href="/user">Account</a>
+        <a class="nav" href="/login">Log Out</a>
+      </ul>
+    </div>
+
+    <div class="forms nav-form">
+      <h1>Upload Music</h1>
+      <form method='post' enctype="multipart/form-data" action="/upload">
+        <h2>Art:</h2>
+        <input type="file" name="art">
+        <h2>MP3 File:</h2>
+        <input type="file" name="mp3">
+        <h2>Title:</h2>
+        <input autocomplete="off" type="text" name="title">
+        <h2>Artist:</h2>
+        <input autocomplete="off" type="text" name="artist">
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+    <img id="logo" src="../images/logo.png" alt="">
+  </body>
+</html>

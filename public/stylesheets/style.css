@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background-color: rgba(22, 36, 36, 0.95);
+}
+
+div.NavBar {
+  height: 100%;
+  width: 250px;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow-x: hidden;
+  padding-top: 50px;
+}
+
+div.NavBar ul {
+  list-style: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+div.NavBar ul a.nav {
+  display: block;
+  text-decoration: none;
+  color: #DDD;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+div.NavBar ul a.nav:hover {
+  color: #FFF;
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+div.NavBar ul a img {
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+div.Main {
+  margin-left: 250px;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+div#input h1 {
+  color: #ecf0f1;
+  text-shadow: 1px 1px 2px whitesmoke;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+input[type="text"] {
+  font-size: 22px;
+  text-align: center;
+  font-family: monospace;
+  color: #ecf0f1;
+  text-shadow: 1px 1px 2px whitesmoke;
+  border-color: #1e8bc3;
+  width: 80%;
+  height: 40px;
+  box-shadow: 1px 0px 4px #5c97bf;
+  margin-bottom: 20px;
+  background-image: linear-gradient(100deg, #34495e, #67809f);
+}
+
+input[type="submit"] {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0 3px gray;
+  font-size: 20;
+  color: #e0e6e9;
+  padding: 10px 15px;
+  width: auto;
+  border: none;
+  background-image: linear-gradient(100deg, #1e8cc3e3, #6bb9f3e3);
+  box-shadow: 2px 2px 4px black;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background-image: linear-gradient(100deg, #1e8cc0, #6bb9f0);
+}
+
+input[type="submit"]:active {
+  box-shadow: 1px 1px 3px black;
+}

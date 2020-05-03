@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Mate</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+  </head>
+  <body>
+    <div class="NavBar">
+      <ul>
+        <a href="/"><img src="../images/logo.png"></a>
+        <a class="nav" href="/search">Search</a>
+        <a class="nav" href="/upload">Upload</a>
+        <a class="nav" href="/user">Account</a>
+        <a class="nav" href="/login">Log Out</a>
+      </ul>
+    </div>
+
+    <div class="Main">
+      <div id="input">
+        <h1>Search MP3 Mate</h1>
+        <form autocomplete="off" method='post' action='/search';>
+          <input type="text" id="query" name="query" value=""> <br>
+          <input type="submit" id="search" value="Search">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
