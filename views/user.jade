@@ -4,6 +4,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title MP3 Mate
     link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='stylesheet', href='./stylesheets/forms.css')
   body
     .NavBar
       ul
@@ -13,5 +14,20 @@ html(lang='en')
         a.nav(href='/upload') Upload
         a.nav(href='/user') Account
         a.nav(href='/login') Log Out
-    .UserSettings
-      
+    .forms.nav-form
+      form(method='post', enctype='multipart/form-data', action='/user')
+        h2 Photo:
+        img(src= photo, alt="" width="175px" height="175px")
+        input(type='file', name='photo')
+        h2 Username:
+        input(type='text', name='username' value= username)
+        h2 Bio:
+        input(type='text', name='bio' value= bio)
+        h2 Email:
+        input(type='text', name='email' value= email)
+        h2 Password:
+        input(autocomplete='off', type='text', name='password')
+        input(type='submit', value='Save')
+        h3= error
+        h2 Created Account:
+        p= date

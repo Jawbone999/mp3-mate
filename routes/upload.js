@@ -19,21 +19,21 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     if (req.files === null) {
-        res.render('upload');
+        res.render('upload', {error: 'Error! No files provided.'});
     }
     else if (req.files.art === undefined || req.files.mp3 === undefined) {
-        res.render('upload')
+        res.render('upload', {error: 'Error! Not enough files provided.'})
     }
     else if (req.body.title === '' || req.body.artist === '') {
-        res.render('upload');
+        res.render('upload', {error: 'Error! Not enough data provided.'});
     }
     else {
         // Data exists
         if (req.files.art.mimetype !== 'image/jpeg' && req.files.art.mimetype !== 'image/png') {
-            res.render('upload');
+            res.render('upload', {error: 'Error! Invalid art file type.'});
         }
         else if (req.files.mp3.mimetype !== 'audio/mpeg') {
-            res.render('upload');
+            res.render('upload', {error: 'Error! Invalid music file type.'});
         }
         else {
             // Valid enough data
