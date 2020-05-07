@@ -24,6 +24,7 @@ router.post('/', function(req, res, next) {
     .then(reply => {
       if (reply.rows.length === 0) {
         console.error('Invalid Username:', username)
+        res.render('login', {error: 'Error: Incorrect password!'});
       }
       const salt = reply.rows[0].salt;
       const db_hashed_password = reply.rows[0].password;

@@ -4,6 +4,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title MP3 Mate
     link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='stylesheet', href='./stylesheets/forms.css')
   body
     .NavBar
       ul
@@ -11,5 +12,18 @@ html(lang='en')
           img(src='../images/logo.png')
         a.nav(href='/search') Search
         a.nav(href='/upload') Upload
+        a.nav(href='/collection') Collections
         a.nav(href='/user') Account
         a.nav(href='/login') Log Out
+    .Main
+      #input
+        h1 Create New Collection
+          form(autocomplete='off', method='post', action='/collection', ;='')
+            input#query(type='text', name='title', value='' style="margin-right: auto;")
+            br
+            input#search(type='submit', value='Create')
+      #results(style= display)
+        h1 Music Collections
+        br
+        table
+          != collections

@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
       if (row.photo !== null) {
         photo = row.photo;
       }
-      photo = './images/' + photo;
+      photo = '../images/' + photo;
       
       const username = row.username;
       
@@ -42,12 +42,51 @@ router.get('/', function(req, res, next) {
     })
   }
   else {
-    return res.redirect('index');
+    return res.redirect('/');
   }
 });
 
+router.get('/:id', function(req, res, next) {
+  if (req.session.loggedin) {
+    client.query(`SELECT * from users WHERE id = '${req.params.id}'`)
+    .then((result) => {
+      const row = result.rows[0];
+      let photo = 'default.jpg';
+      if (row.photo !== null) {
+        photo = row.photo;
+      }
+      photo = '../images/' + photo;
+      
+      const username = row.username;
+      
+      let bio = '';
+      if (row.bio !== null) {
+        bio = row.bio;
+      }
+
+      const date = row.created_at;
+
+      const email = row.email;
+
+      const options = {username: username, photo: photo, bio: bio, date: date, email: email};
+
+      return res.render('user', options);
+    })
+    .catch(err => {
+      console.error(err.stack);
+      return res.redirect('/');
+    })
+  }
+  else {
+    return res.redirect('/');
+  }
+})
+
 router.post('/', function(req, res, next) {
   if (req.session.loggedin) {
+    if (Object.keys(req.body).length === 0) {
+      return next();
+    }
     client.query(`SELECT * from users WHERE username = '${req.session.username}'`)
     .then(data => {
       const row = data.rows[0];
@@ -129,8 +168,21 @@ router.post('/', function(req, res, next) {
     })
   }
   else {
-    return res.redirect('index');
+    return res.redirect('/');
   }
+}, function(req, res, next) {
+  client.query(`DELETE FROM users WHERE username = '${req.session.username}'`)
+  .then(reply => {
+    console.log('Successfully deleted user.')
+    req.session.username = undefined;
+    req.session.loggedin = false;
+    return res.redirect('/')
+
+  })
+  .catch(err => {
+    console.error(err.stack);
+    return res.redirect('/');
+  })
 });
 
 module.exports = router;

@@ -1,0 +1,26 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title MP3 Mate
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    link(rel='stylesheet', href='../stylesheets/forms.css')
+  body
+    .NavBar
+      ul
+        a(href='/')
+          img(src='../images/logo.png')
+        a.nav(href='/search') Search
+        a.nav(href='/upload') Upload
+        a.nav(href='/collection') Collections
+        a.nav(href='/user') Account
+        a.nav(href='/login') Log Out
+    .Main
+      #input
+        h1= name
+          form(autocomplete='off', method='post', action= act, ;='')
+            input#search(type='submit', value='Delete' style="color:red;")
+      #results
+        h1 Songs in Collection
+        br
+        != songs

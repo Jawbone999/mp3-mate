@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
     res.render('upload');
   }
   else {
-    res.redirect('index');
+    res.redirect('/');
   }
 });
 
@@ -39,16 +39,18 @@ router.post('/', function(req, res, next) {
             // Valid enough data
             // Storing files based on md5 is not great but works for small data sets
             const art = req.files.art;
-            const artPath = './database/art/' + art.md5;
+            const artPath = './public/art/' + art.md5;
             const mp3 = req.files.mp3;
-            const mp3Path = './database/mp3' + mp3.md5;
+            const mp3Path = './public/mp3/' + mp3.md5;
             if (!fs.existsSync(artPath)) {
                 art.mv(artPath);
             }
             if (!fs.existsSync(mp3Path)) {
                 mp3.mv(mp3Path)
             }
-            const query = `INSERT INTO songs (title, mp3, art, artist) VALUES('${req.body.title}', '${mp3Path}', '${artPath}', '${req.body.artist}')`;
+            const artist = req.body.artist.replace("'", "''");
+            const title = req.body.title.replace("'", "''");
+            const query = `INSERT INTO songs (title, mp3, art, artist) VALUES('${title}', '${mp3.md5}', '${art.md5}', '${artist}')`;
             client.query(query)
             .then(reply => {
                 console.log('Uploaded song.');

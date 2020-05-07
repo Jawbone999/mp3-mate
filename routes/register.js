@@ -9,6 +9,8 @@ const validator = require('validator');
 const crypto = require('crypto');
 
 router.get('/', function(req, res, next) {
+    req.session.loggedin = false;
+    req.session.username = undefined;
     res.render('register', {error: ''});
 });
 

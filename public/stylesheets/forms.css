@@ -37,3 +37,16 @@ div.nav-form {
     padding: 20px;
     padding-top: 50px;
 }
+
+#small {
+    display: inline-block;
+}
+
+th, tr, td {
+    border: 4px solid whitesmoke;
+    padding: 4px;
+}
+
+table {
+    border-collapse: collapse;
+}

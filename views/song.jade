@@ -1,0 +1,41 @@
+html(lang='en', style='overflow: visible')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title MP3 Mate
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    link(rel='stylesheet', href='../stylesheets/forms.css')
+  body(style='overflow:visible;')
+    .NavBar
+      ul
+        a(href='/')
+          img(src='../images/logo.png')
+        a.nav(href='/search') Search
+        a.nav(href='/upload') Upload
+        a.nav(href='/collection') Collections
+        a.nav(href='/user') Account
+        a.nav(href='/login') Log Out
+    .forms.nav-form
+      form(method='post', enctype='multipart/form-data', action=act)
+        h2 Art:
+        img(src= art, alt="" width="175px" height="175px")
+        input(type='file', name='art')
+        h2 Title:
+        input(autocomplete='off' type='text', name='title' value= title)
+        h2 Artist:
+        input(autocomplete='off' type='text', name='artist' value= artist)
+        h2 MP3 File:
+        audio(controls='')
+            source(src= mp3, type='audio/mpeg')
+        input(type='file', name='mp3')
+        br
+        input(type='submit', value='Save')
+      br
+      form(method='post' action= act)
+        h2 Collection Title:
+        input(autocomplete='off' type='text', name='collection' value= '')
+        input(type='submit' value='Save to Collection')
+      br
+      form(method='post' action= act2)
+        input(type='submit' value='Delete' style="color:red;")
+      h3= error

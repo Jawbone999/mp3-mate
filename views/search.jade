@@ -11,12 +11,20 @@ html(lang='en')
           img(src='../images/logo.png')
         a.nav(href='/search') Search
         a.nav(href='/upload') Upload
+        a.nav(href='/collection') Collections
         a.nav(href='/user') Account
         a.nav(href='/login') Log Out
     .Main
       #input
         h1 Search MP3 Mate
         form(autocomplete='off', method='post', action='/search', ;='')
-          input#query(type='text', name='query', value='')
+          input#query(type='text', name='query', value= query)
           br
           input#search(type='submit', value='Search')
+      #results(style= display)
+        h2 Songs
+        != songs
+        h2 Collections
+        != collections
+        h2 Users
+        != users

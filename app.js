@@ -11,6 +11,8 @@ var collectionRouter = require('./routes/collection');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var uploadRouter = require('./routes/upload');
+var playlistRouter = require('./routes/playlist');
+var songRouter = require('./routes/song');
 
 const session = require('express-session');
 const fileUpload = require('express-fileupload');
@@ -47,6 +49,8 @@ app.use('/collection', collectionRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/upload', uploadRouter);
+app.use('/playlist', playlistRouter);
+app.use('/song', songRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
